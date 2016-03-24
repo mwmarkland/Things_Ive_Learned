@@ -20,3 +20,17 @@ the error of my understanding. The signature of reduceByKey is really
 function, in this case `+` only needs to be defined on the value
 type. The documentation does call out that func has to be `(V,V) => V`, but I missed that the first time. `reduceByKey` actually gets turned into a call to `combineByKeyWithClassTag` which looks like an interesting function. The code is in
 `core/src/main/scala/org/apache/spark/rdd/PairRddFunctions.scala`
+
+# Using eclipse for Scala/Spark development.
+
+The idea was to be able to build on a laptop and move JAR file to a different computer. For the Mac, here is what I did.
+1. Installed Eclipse (I used the parallel tools one) using the Eclipse installer.
+2. Installed ScalaIDE from the Marketplace.
+3. Installed sbt via MacPorts.
+4. Installed `sbteclipse` plugin for sbt in `.sbt\` directory.
+5. Create a src dir for the project.
+6. Ran `sbt eclipse` to create Eclipse project files.
+
+The instructions next are you import the project into Eclipse using a generic import. This gets you editing and stuff. You have to do manual refresh to keep things in sync. Builds are done manually outside of Eclipse.
+
+This seemed to succesfully work. Didn't try anything too complicated code-wise. However, it seems sort of heavy with Eclipse not being able to do all of the heavy lifting.
