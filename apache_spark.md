@@ -34,3 +34,6 @@ The idea was to be able to build on a laptop and move JAR file to a different co
 The instructions next are you import the project into Eclipse using a generic import. This gets you editing and stuff. You have to do manual refresh to keep things in sync. Builds are done manually outside of Eclipse.
 
 This seemed to succesfully work. Didn't try anything too complicated code-wise. However, it seems sort of heavy with Eclipse not being able to do all of the heavy lifting.
+
+# Dependencies in sbt.
+sbt searchs out in the Maven and other "repositories" for dependencies. When I tried my first GraphX program, I couldn't get it to resolve the GraphX stuff. So I did a search on Maven2 to find the repository and then followed org.apache.spark down the hierarchy. There I saw a bunch of files labled spark-core-XXXX which seemed to be the idea behind the spark-core library dependency. So I looked for graphx and found spark-graphx. Adding a library dependency entry in my build.sbt file got me going.
