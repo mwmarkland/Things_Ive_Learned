@@ -30,3 +30,21 @@ val hadoopConf = new org.apache.hadoop.conf.Configuration()
 val hdfs = org.apache.hadoop.fs.FileSystem.get(new java.net.URI("hdfs://localhost:9000"), hadoopConf)
 try { hdfs.delete(new org.apache.hadoop.fs.Path(filepath), true) } catch { case _ : Throwable => { } }
 ~~~
+
+# Using eclipse for Scala/Spark development.
+
+The idea was to be able to build on a laptop and move JAR file to a different computer. For the Mac, here is what I did.
+1. Installed Eclipse (I used the parallel tools one) using the Eclipse installer.
+2. Installed ScalaIDE from the Marketplace.
+3. Installed sbt via MacPorts.
+4. Installed `sbteclipse` plugin for sbt in `.sbt\` directory.
+5. Create a src dir for the project.
+6. Ran `sbt eclipse` to create Eclipse project files.
+
+The instructions next are you import the project into Eclipse using a generic import. This gets you editing and stuff. You have to do manual refresh to keep things in sync. Builds are done manually outside of Eclipse.
+
+This seemed to succesfully work. Didn't try anything too complicated code-wise. However, it seems sort of heavy with Eclipse not being able to do all of the heavy lifting.
+
+# Dependencies in sbt.
+sbt searchs out in the Maven and other "repositories" for dependencies. When I tried my first GraphX program, I couldn't get it to resolve the GraphX stuff. So I did a search on Maven2 to find the repository and then followed org.apache.spark down the hierarchy. There I saw a bunch of files labled spark-core-XXXX which seemed to be the idea behind the spark-core library dependency. So I looked for graphx and found spark-graphx. Adding a library dependency entry in my build.sbt file got me going.
+
