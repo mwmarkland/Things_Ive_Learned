@@ -20,3 +20,13 @@ the error of my understanding. The signature of reduceByKey is really
 function, in this case `+` only needs to be defined on the value
 type. The documentation does call out that func has to be `(V,V) => V`, but I missed that the first time. `reduceByKey` actually gets turned into a call to `combineByKeyWithClassTag` which looks like an interesting function. The code is in
 `core/src/main/scala/org/apache/spark/rdd/PairRddFunctions.scala`
+
+# How do I avoid exceptions when I try to write to an already existing path.
+
+This code will delete the directory before you use it.
+
+~~~
+val hadoopConf = new org.apache.hadoop.conf.Configuration()
+val hdfs = org.apache.hadoop.fs.FileSystem.get(new java.net.URI("hdfs://localhost:9000"), hadoopConf)
+try { hdfs.delete(new org.apache.hadoop.fs.Path(filepath), true) } catch { case _ : Throwable => { } }
+~~~
