@@ -1,3 +1,12 @@
+# Good websites
+
+http://spark-packages.org/
+
+
+# Controlling driver and executor memory limits
+
+http://stackoverflow.com/questions/27181737/how-to-deal-with-executor-memory-and-driver-memory-in-spark
+
 # Submitting from the command-line.
 
 Running outside of the spark-shell, you have to build jar's containing everything you need to run your app so that it can be distributed across the cluster. Reminds me of static linking on HPCs.
@@ -6,6 +15,12 @@ Here's an example submit (to a local instance) based on the example in the Spark
 
 ~~~
 spark-submit --class "SimpleApp" target/scala-2.10/simple-project_2.10-1.0.jar
+~~~
+
+When you need additional packages
+
+~~~
+spark-submit --packages com.databricks:spark-csv_2.10:1.4.0 --class mayo.athena.ga_demo.sparksql.SQLExample target/scala-2.10/sparksql-example_2.10-0.0.1.jar
 ~~~
 
 The jar was built using `sbt`.
