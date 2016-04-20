@@ -1,4 +1,9 @@
 #zsh
+## Websites
+
+[Home](http://www.zsh.org/)
+[Oh My Zsh!](http://ohmyz.sh/)
+
 ## Mac
 ### MacPorts
 To set MacPorts' zsh as default login shell, run:
