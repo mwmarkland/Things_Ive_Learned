@@ -3,6 +3,7 @@
 
 [Home](http://www.zsh.org/)
 [Oh My Zsh!](http://ohmyz.sh/)
+[From Bash to Z Shell](http://www.bash2zsh.com/)
 
 ## Mac
 ### MacPorts
