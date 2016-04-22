@@ -1,3 +1,9 @@
+# Hints on keeping ordering.
+
+In general Spark won't retain the order of lines in a file when you
+generate output, but you can create a unique key to add to your input
+so that there is a way to recreate the ordering at the end.
+
 # Good websites
 
 http://spark-packages.org/
