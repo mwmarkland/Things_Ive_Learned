@@ -4,6 +4,8 @@ In general Spark won't retain the order of lines in a file when you
 generate output, but you can create a unique key to add to your input
 so that there is a way to recreate the ordering at the end.
 
+[Which operations preserve rdd order?](http://stackoverflow.com/questions/29284095/which-operations-preserve-rdd-order?lq=1)
+
 # Good websites
 
 http://spark-packages.org/
