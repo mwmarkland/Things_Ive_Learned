@@ -90,3 +90,9 @@ seemed to be the idea behind the spark-core library dependency. So I
 looked for graphx and found spark-graphx. Adding a library dependency
 entry in my build.sbt file got me going.
 
+
+# Performance
+
+## Locality
+
+[Meaning of locality](http://stackoverflow.com/questions/26994025/whats-the-meaning-of-locality-levelon-spark-cluster)
