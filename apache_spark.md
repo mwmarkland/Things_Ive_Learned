@@ -1,3 +1,16 @@
+# Quieting it down.
+
+In the shell:
+`sc.setLogLevel(“WARN”)`
+
+In an app:
+~~~
+val log = LogManager.getRootLogger
+log.setLevel(Level.WARN)
+~~~
+
+although I'd think the sc function would work also.
+
 # Debugging
 
 - [How can I debug Spark application locally](http://stackoverflow.com/questions/30403685/how-can-i-debug-spark-application-locally)
