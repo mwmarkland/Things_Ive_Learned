@@ -31,3 +31,5 @@ res16: Seq[Int] = List(1, 2, 3, 2, 5, 2, 8, 2)
 Here the `flatMap` map portion would create a list of lists that is then flattened out.
 
 I agree that a common use, seen with many web examples, has to do with lists of `Option` types.
+
+[Good link.](http://tfs/tfs/MayoClinic/IMA/Advanced%20Analytics)
