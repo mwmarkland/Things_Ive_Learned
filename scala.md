@@ -33,3 +33,16 @@ Here the `flatMap` map portion would create a list of lists that is then flatten
 I agree that a common use, seen with many web examples, has to do with lists of `Option` types.
 
 [Good link.](http://tfs/tfs/MayoClinic/IMA/Advanced%20Analytics)
+
+## Scala I/O
+
+I was (am) confused about the correct methods to use for I/O. You can
+access the Java ones, of course, but Scala does have a `scala.io`
+package. One thing that confused me when looking at `scala.io.Source`
+was that I couldn't seem to find the documentation for `fromFile()` on
+the web. I discovered that this interface doesn't exist in the *class
+Source* but is instead in the **object Source** denoted by the little
+icons next to the name `Source` in the API docs. I will have to think
+abou this some more. The object would be a singleton that must be
+created and available within the `scala.io` package.
+
