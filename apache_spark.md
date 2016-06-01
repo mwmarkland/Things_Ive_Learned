@@ -1,3 +1,14 @@
+# Documentation
+
+I sometimes find it hard to find documentation for stuff. What I've
+discovered is that not all API stuff is at the "top-level". For
+example, in GraphX many items are in the `GraphOps` *class* which is
+part of `org.apache.spark.graphx` but you won't find the API members
+by doing a search.
+
+There are also items that are only in *objects* which are another
+piece of the documentation puzzle. My Scala notes discuss this also.
+
 # Quieting it down.
 
 In the shell:

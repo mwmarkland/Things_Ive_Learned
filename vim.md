@@ -21,7 +21,9 @@
 `yy` - yank (copy) a line
 `p` - paste
 
-Remeber you can add numbers to repeat the command for so many lines.
+`<num>gg` - goto line <num>
+
+Remember you can add numbers to repeat the command for so many lines.
 
 
 
