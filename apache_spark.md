@@ -1,3 +1,22 @@
+
+# Gotchas(?)
+
+I think that match exceptions may be silently caught and ignored.
+
+Avoid **groupByKey**. `aggregateByKey`, `reduceByKey`, `combineByKey` are better.
+
+~~~
+val initialValue = (0.0,0.0,0.0)
+def seqOp(u: (Double, Double, Double), v: Double) = (u._1 + v, u._2 + v*v, u._3 + 1)
+def combOp(u1: (Double, Double, Double),  u2: (Double, Double, Double)) = (u1._1 + u2._1, u1._2 + u2._2, u1._3 + u2._3)
+rdd.aggregateByKey(initialValue)(seqOp, combOp)
+~~~
+
+
+# Getting one output file.
+
+`coalesce` is your friend.
+
 # Documentation
 
 I sometimes find it hard to find documentation for stuff. What I've
@@ -37,6 +56,9 @@ so that there is a way to recreate the ordering at the end.
 # Good websites
 
 http://spark-packages.org/
+[RDD API Examples](http://homepage.cs.latrobe.edu.au/zhe/ZhenHeSparkRDDAPIExamples.html)
+
+[How-to: Tune Your Apache Spark Jobs Part One](http://blog.cloudera.com/blog/2015/03/how-to-tune-your-apache-spark-jobs-part-1/)
 
 # Controlling driver and executor memory limits
 
