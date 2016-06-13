@@ -139,6 +139,45 @@ entry in my build.sbt file got me going.
 
 # Performance
 
+After reading through notes from Arvind and looking at performance of
+various Spark runs, it is clear that you get better performance from
+Spark the more you look at the instance of your application and data
+and tune it. From Arvind's reports, it is clear that this tuning is
+key; for example he got the Scale 29 PageRank test running on 41 nodes
+in about an hour, but when he took the same invocation ran it on 32
+nodes and it ran for 16+ hours and didn't finish. When he changed the
+memory allocation, things went better. Arvind has also see cases where
+the work does not spread evenly across executors (either in the number
+of tasks or the amount of memory needed for operations) in which case
+you have to figure out how to reprocess/repartition the work to get
+better balance. What Arvind has is access to the engineers on the
+system who more closely know how Spark works.
+
+So, the place to start is the Executors tab in the Spark History for
+the job. Within Mesos (i.e. Athena) there will be one executor per
+worker node (and with the coarse mode we are using, one worker node =
+one node). You can see how many tasks were assigned to each
+executor. If these numbers are not balanced, there may be an issue in
+how the data is partitioned (data partitions in Spark map to tasks at
+execution time). The amount of shuffled data needs to be examined
+also. Shuffling data is essentially lost time/work in one sense.
+
+So, watching the memory allocation per executor, using cache() to
+avoid recomputation of values, watching the memory split on the
+executors, watching the partitions (i.e. tasks) and how they spread
+over the executors, remembering which Spark operations cause
+shuffles. All of these things are very important.
+
+
+
+## Sites
+
+[Shuffling and repartitioning of RDDs in Apache Spark](https://blog.knoldus.com/2015/06/19/shufflling-and-repartitioning-of-rdds-in-apache-spark/)
+
+[Repartition strategy after reading text file.](http://stackoverflow.com/questions/28127119/spark-repartition-strategy-after-reading-text-file)
+
+[Apache Spark Resource Management and YARN App Models](http://stackoverflow.com/questions/28127119/spark-repartition-strategy-after-reading-text-file)
+
 ## Locality
 
 [Meaning of locality](http://stackoverflow.com/questions/26994025/whats-the-meaning-of-locality-levelon-spark-cluster)
