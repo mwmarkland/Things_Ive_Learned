@@ -1,3 +1,39 @@
+# Spark SQL example.
+
+Hacking on the spark application history JSON output.
+~~~
+val appHistory = sqlContext.jsonFile("file:///users/markland/linux_box/a53a2d80-3405-4872-8aaf-d24d160f3a41-0138",250)
+appHistory.registerTempTable("appHistory")
+val taskInfo = sqlContext.sql("SELECT `Task Info` FROM appHistory")
+taskInfo: org.apache.spark.sql.DataFrame = [Task Info: struct<Accumulables:array<string>,Attempt:bigint,Executor ID:string,Failed:boolean,Finish Time:bigint,Getting Result Time:bigint,Host:string,Index:bigint,Launch Time:bigint,Locality:string,Speculative:boolean,Task ID:bigint>]
+val stuff = sqlContext.sql("SELECT `Task Info`.`Executor ID` FROM taskI")
+val stuff = sqlContext.sql("SELECT `Task Info`.`Executor ID`,`Task Info`.`Task ID` FROM taskI")
+[08c79742-4fa1-476b-bdde-b994f9d9ebee-S27,33323]
+
+scala> stringRDD2.map(x => (x(0),x(1)))
+res43: org.apache.spark.rdd.RDD[(String, String)] = MapPartitionsRDD[64] at map at <console>:41
+
+scala> res43.take(2)
+res44: Array[(String, String)] = Array((08c79742-4fa1-476b-bdde-b994f9d9ebee-S18,0), (08c79742-4fa1-476b-bdde-b994f9d9ebee-S18,1))
+
+scala> res43.groupByKey
+res45: org.apache.spark.rdd.RDD[(String, Iterable[String])] = ShuffledRDD[65] at groupByKey at <console>:43
+
+scala> res45.take(2)
+res46: Array[(String, Iterable[String])] = Array((08c79742-4fa1-476b-bdde-b994f9d9ebee-S30,CompactBuffer(32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 35, 55, 47, 60, 45, 44, 53, 40, 49, 54, 63, 46, 61, 48, 62, 43, 51, 59, 57, 52, 50, 56, 41, 58, 42, 39, 37, 32, 33, 38, 36, 34, 110, 114, 118, 122, 126, 130, 134, 138, 142, 146, 150, 154, 158, 162, 166, 170, 174, 178, 182, 186, 190, 194, 198, 202, 206, 210, 214, 218, 222, 226, 230, 234, 244, 234, 251, 218, 252, 226, 255, 222, 259, 230, 262, 244, 283, 190, 288, 194, 291, 162, 293, 182, 296, 255, 301, 252, 305, 118, 306, 130, 308, 142, 309, 198, 311, 206, 315, 158, 317, 251, 319, 202, 323, 186, 262, 259, 174, 146, 126, 178, 170, 166, 150, 154, 283, 288, 138, 2...
+
+scala> res45.map(x => (x._1,x._2.count(x => true)))
+res55: org.apache.spark.rdd.RDD[(String, Int)] = MapPartitionsRDD[67] at map at <console>:45
+
+scala> res55.take(2)
+res56: Array[(String, Int)] = Array((08c79742-4fa1-476b-bdde-b994f9d9ebee-S30,16680), (08c79742-4fa1-476b-bdde-b994f9d9ebee-S5,16604))
+
+scala> res55.collect.foreach(println)
+(08c79742-4fa1-476b-bdde-b994f9d9ebee-S30,16680)
+(08c79742-4fa1-476b-bdde-b994f9d9ebee-S5,16604)
+(08c79742-4fa1-476b-bdde-b994f9d9ebee-S18,16688)
+(08c79742-4fa1-476b-bdde-b994f9d9ebee-S27,16736)
+~~~
 
 # Gotchas(?)
 

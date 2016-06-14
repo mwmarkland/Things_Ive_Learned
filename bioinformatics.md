@@ -3,7 +3,10 @@
 
 "Paired-End diTags" or "ditags"
 
-short sequences at the 5' and 3' ends of a fragment of DNA which are unique enough that they (theoretically) exist together only once in a genome, therefore making the sequence of the DNA in between them available upon search (if full-genome sequence data is available).
+short sequences at the 5' and 3' ends of a fragment of DNA which are
+unique enough that they (theoretically) exist together only once in a
+genome, therefore making the sequence of the DNA in between them
+available upon search (if full-genome sequence data is available).
 
 PET libraries have the PETs with intervening DNA absent.
 
