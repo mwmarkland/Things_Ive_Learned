@@ -1,3 +1,6 @@
+# Useful APIs
+SparkConf -- `getAll()` returns `Array[(String,String)]` shows configuration values.
+
 # Spark SQL example.
 
 Hacking on the spark application history JSON output.
