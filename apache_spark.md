@@ -93,6 +93,7 @@ so that there is a way to recreate the ordering at the end.
 [Which operations preserve rdd order?](http://stackoverflow.com/questions/29284095/which-operations-preserve-rdd-order?lq=1)
 
 # Good websites
+[Mastering Apache Spark GitBook](https://www.gitbook.com/book/jaceklaskowski/mastering-apache-spark/details)
 
 http://spark-packages.org/
 [RDD API Examples](http://homepage.cs.latrobe.edu.au/zhe/ZhenHeSparkRDDAPIExamples.html)
