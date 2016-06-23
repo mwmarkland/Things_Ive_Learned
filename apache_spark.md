@@ -1,3 +1,27 @@
+# Maven setup of scala project
+
+## General project:
+Using [scala-archetype-simple](https://github.com/davidB/scala-archetype-simple)
+
+~~~
+mvn archetype:generate -B -DarchetypeGroupId=net.alchim31.maven -DarchetypeArtifactId=scala-archetype-simple -DarchetypeVersion=1.5 -DgroupId=edu.mayo.analytics -DartifactId=PageRank -Dversion=0.1 -Dpackage=edu.mayo.analytics
+~~~
+
+## Spark Project
+[Spark In Action Book](https://github.com/spark-in-action/scala-archetype-sparkinaction)
+
+~~~
+#### From the terminal or a shell script (batch mode): Don't forget to change the parameter values in the last line.
+
+mvn archetype:generate -B \
+-DarchetypeCatalog=https://github.com/spark-in-action/scala-archetype-sparkinaction/raw/master/archetype-catalog.xml \
+-DarchetypeRepository=https://github.com/spark-in-action/scala-archetype-sparkinaction/raw/master \
+-DarchetypeGroupId=org.sparkinaction \
+-DarchetypeArtifactId=scala-archetype-sparkinaction \
+-DarchetypeVersion=0.13 \
+-DgroupId=com.sia -DartifactId=chapter03App -Dversion=0.1-SNAPSHOT -Dpackage=com.sia
+~~~
+
 # Useful APIs
 SparkConf -- `getAll()` returns `Array[(String,String)]` shows configuration values.
 

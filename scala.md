@@ -1,5 +1,11 @@
 # Scala Hints
 
+## Maven setup of scala project
+
+Using [scala-archetype-simple](https://github.com/davidB/scala-archetype-simple)
+
+mvn archetype:generate -B -DarchetypeGroupId=net.alchim31.maven -DarchetypeArtifactId=scala-archetype-simple -DarchetypeVersion=1.5 -DgroupId=edu.mayo.analytics -DartifactId=PageRank -Dversion=0.1 -Dpackage=edu.mayo.analytics
+
 ## Reading from binary file in Scala
 - [StackOverflow answer](http://stackoverflow.com/questions/9334590/reading-from-binary-file-scala)
 
