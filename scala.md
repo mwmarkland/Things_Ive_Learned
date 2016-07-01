@@ -52,3 +52,44 @@ icons next to the name `Source` in the API docs. I will have to think
 abou this some more. The object would be a singleton that must be
 created and available within the `scala.io` package.
 
+## for comprehensions versus map/filter
+
+In _Scala for the Impatient_ there are examples like this:
+
+~~~
+val evenElem = for(e <- elem if e % 2 == 0) yield e
+~~~
+
+which pulls out the even items in `elem` using a **for comprehension** and a **guard expression**. This can also be done with a filter/map functional style; in this case just a filter because there is no calculation.
+
+~~~
+val evenElem2 = elem.filter( _ % 2 == 0)
+~~~
+
+There is no behavioral difference, it is just how you spell it.
+
+## Arrays
+
+When you initialize an array with values, don't use **new**.
+When you initialize an array without values, use **new**.
+
+**WHY?**
+
+Methods for the `Array` class are listed under `ArrayOps`. An `Array` is converted to an `ArrayOps` object before any operations are applied.
+
+`val matrix = Array.ofDim[Double](3,4) // Three rows, four columns`
+
+matrix(row)(column)
+
+## "new" keyword in Scala!!
+
+This actually has something to do with this:
+["new" keyword in Scala](http://stackoverflow.com/questions/9727637/new-keyword-in-scala)
+
+So, when you use **new** you refer to the class' constructor. When you
+omit new you refer to the companion object's **apply** method.
+
+Java classes don't have companion objects, you use new with them.
+
+
+
