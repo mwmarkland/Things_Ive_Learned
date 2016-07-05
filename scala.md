@@ -52,7 +52,16 @@ icons next to the name `Source` in the API docs. I will have to think
 abou this some more. The object would be a singleton that must be
 created and available within the `scala.io` package.
 
-## for comprehensions versus map/filter
+### One way to read things.
+
+From _Scala for the Impatient_.
+
+~~~Scala
+val in = new java.util.Scanner(new java.io.File("myfile.txt"))
+while (in.hasNext()) process in.next()
+~~~
+
+## for-comprehensions versus map/filter
 
 In _Scala for the Impatient_ there are examples like this:
 
