@@ -292,8 +292,13 @@ categorizing, isolation, prioritization.
 Each Spark executor runs as a YARN container. Multiple Spark tasks may
 then run in this container. Note that you can have multiple YARN
 containers on a given physical node, so you could have multiple Spark
-Executors on a given node.
+Executors on a given physical node.
 
+The number of Spark executors maps to the number of YARN containers
+one-to-one with the number or cores and executor memory then defining
+the resources for the container. **It is better to have more
+containers than more CPUS/container.** Best to keep one core per
+container.
 
 # Performance
 
