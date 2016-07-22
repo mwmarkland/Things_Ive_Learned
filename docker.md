@@ -6,6 +6,11 @@ Installing SSH and SSHing into a container is an anti-pattern, unless the point 
 
 Using the `volume` mappings is important; this is one good way to communicate in and out of a container.
 
+## Useful commands
+
+Delete all containers - `docker rm $(docker ps -a -q)`
+
+Delete all images - `docker rmi $(docker images -q)`
 
 ## Kaggal Tutorial
 Walking through a tutorial (here)[http://blog.kaggle.com/2016/02/05/how-to-get-started-with-data-science-in-containers/] to try to start up a "data science" docker container. Some interesting notes (based on my work Mac).
