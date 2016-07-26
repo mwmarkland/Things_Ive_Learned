@@ -40,10 +40,16 @@ Docker is up and running!
 To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env docker-test
 ~~~
 
-- You have to configure the enviornment in your shell to be able to work with the container.
+- Once you have created a machine (i.e. the VM things will run in) you can start and stop it via docker-machine.
 
 ~~~
-R0223760:~ m134910$ eval $(docker-machine env docker-testimpo)
+docker-machine start docker-test
+~~~
+
+- Once you have created or started a machine, you have to configure the enviornment in your shell to be able to work with the container.
+
+~~~
+R0223760:~ m134910$ eval $(docker-machine env docker-test)
 R0223760:~ m134910$ docker-machine env docker-test
 export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://192.168.99.101:2376"
@@ -52,6 +58,30 @@ export DOCKER_MACHINE_NAME="docker-test"
 # Run this command to configure your shell: 
 # eval $(docker-machine env docker-test)
 ~~~
+
+- After I started a stopped docker machine I ran into this:
+
+~~~
+R0223760:~ m134910$ eval $(docker-machine env docker-test)
+Error checking TLS connection: Error checking and/or regenerating the certs: There was an error validating certificates for host "192.168.99.100:2376": x509: certificate is valid for 192.168.99.101, not 192.168.99.100
+You can attempt to regenerate them using 'docker-machine regenerate-certs [name]'.
+Be advised that this will trigger a Docker daemon restart which will stop running containers.
+~~~
+
+So I did this
+
+~~~
+R0223760:~ m134910$ docker-machine regenerate-certs docker-test
+Regenerate TLS machine certs?  Warning: this is irreversible. (y/n): y
+Regenerating TLS certificates
+Waiting for SSH to be available...
+Detecting the provisioner...
+Copying certs to the local machine directory...
+Copying certs to the remote machine...
+Setting Docker configuration on the remote daemon...
+~~~
+
+Which allowed me to do the `eval` and get the environment setup.
 
 - Now pull down an image
 
@@ -87,14 +117,6 @@ R0223760:docker-scratch m134910$ docker run -v $PWD:/tmp/working -w=/tmp/working
 Python 3.5.2 |Anaconda 4.1.1 (64-bit)| (default, Jul  2 2016, 17:53:06) 
 [GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
->>> 
-~~~
-
-~~~
-R0223760:docker-scratch m134910$ docker run -v $PWD:/tmp/working -w=/tmp/working --rm -it kaggle/python python
-Python 3.5.2 |Anaconda 4.1.1 (64-bit)| (default, Jul  2 2016, 17:53:06) 
-[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
-Type "help", "copyright", "credits" or "license" for more information.
 >>> print ("Hello World")
 Hello World
 >>> import pandas
@@ -123,4 +145,14 @@ R0223760:docker-scratch m134910$ more file.txt
 Hello
 R0223760:docker-scratch m134910$
 ~~~
+
+- Or a shell
+
+~~~
+R0223760:docker-scratch m134910$ docker run -v $PWD:/tmp/working -w=/tmp/working --rm -it python-ds bash
+[root@f4fcce6d084f working]# 
+~~~
+
+You'll get root unless you create a user account and such. Volumes are key to mounting directories and allowing interaction even with isolation.
+
 
