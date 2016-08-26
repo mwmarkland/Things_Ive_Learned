@@ -364,3 +364,7 @@ From [Mammoth Data](http://www.mammothdata.com) here are 9 tips for best practic
 7. G1 GC can be more performant on large datasets. Tuning will be required to get best performance.
 8. Use Dataframes rather than RDDs (this is even more true in 2.0).
 9. Spark Streaming is microbatch, not streaming.
+
+Spark performance is highly dependent on finding the right number of tasks (i.e. partitioning of data) and correct ammount of memory per executor. Changing the number of executors while keeping the memory allocation per executor the same can change the shuffle pattern for the data and kill performance.
+
+`cache()` to avoid recomputation of RDDs.
