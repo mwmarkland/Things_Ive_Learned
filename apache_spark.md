@@ -353,3 +353,14 @@ execution; a step in a physical execution plan. It is also a set of
 parallel *task*s one per partition within the RDD. Stage boundaries
 are marked by shuffle dependencies which are essentially like
 barriers. Executors run tasks.
+
+From [Mammoth Data](http://www.mammothdata.com) here are 9 tips for best practices with Spark (paraphrased)
+1. Scala will get new features first.
+2. If using Java, use Java 8 or later.
+3. Spark can be unit-tested and integration-tested, and code should be reused between streaming and batch jobs wherever possible.
+4. Minimize shuffling (i.e. don't use groupByKey), and speed serialization.
+5. Use connection pools instead of dedicated connections when connecting to external data sources (don't want RDD to create many connections for each partition/element).
+6. Checkpoint when running streaming apps.
+7. G1 GC can be more performant on large datasets. Tuning will be required to get best performance.
+8. Use Dataframes rather than RDDs (this is even more true in 2.0).
+9. Spark Streaming is microbatch, not streaming.
