@@ -344,3 +344,12 @@ shuffles. All of these things are very important.
 ## Locality
 
 [Meaning of locality](http://stackoverflow.com/questions/26994025/whats-the-meaning-of-locality-levelon-spark-cluster)
+
+## Chicken Scratches 
+
+RDDs are paritioned. An action on an RDD becomes a *job* which is
+transformed into a set of *stages*. A stage is a physical unit of
+execution; a step in a physical execution plan. It is also a set of
+parallel *task*s one per partition within the RDD. Stage boundaries
+are marked by shuffle dependencies which are essentially like
+barriers. Executors run tasks.
