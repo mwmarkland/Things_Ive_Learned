@@ -368,3 +368,24 @@ From [Mammoth Data](http://www.mammothdata.com) here are 9 tips for best practic
 Spark performance is highly dependent on finding the right number of tasks (i.e. partitioning of data) and correct ammount of memory per executor. Changing the number of executors while keeping the memory allocation per executor the same can change the shuffle pattern for the data and kill performance.
 
 `cache()` to avoid recomputation of RDDs.
+
+### Spark Performance Tuning
+
+What runs well at a given number of nodes may blow up on a different number of nodes. To try and diagnose these issues, start with the `Executors` tab in the Spark History. Often there will be one executor per worker node (in Mesos setup on box I was on). The executor may process multiple `tasks` perhaps in parallel.
+
+Tasks map to the partitions that RDDs are broken into. **Watch the balance of tasks per executor and memory being shuffled.**
+
+On the hardware I was on, 
+
+`--total-executor-cores 64` yields Mesos gave me two nodes.
+
+This gives me two executors in this case. If your work has two partitions, than each executor gets one task.
+
+Spark performance is **highly dependent on finding the right number of tasks and correct amount of memory per executor.**
+
+In my example, a 32-node PageRank run on a scale 29 graph didn't work because the memory settings that I tried were from a a 41-node run didn't work; led to a huge amount of data being shuffled.
+
+Upping memory allocation allows run on fewer nodes; it gives more suffle space.
+
+So, `cache()` to avoid recomputation; watch out for shuffles.
+
