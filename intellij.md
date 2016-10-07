@@ -20,6 +20,25 @@ about using the `sbt-idea` plugin as it creates something "downlevel."
 May want to blow away all IDE project files in the directory and just
 try to import a straight up directory.
 
-Moving further in the process, it appears that the sbt plugin isn't really needed for IntelliJ. The IDE has its own setup and you can open an SBT console window using View->Tool Windows. From that console you can do builds. The Build menu pulldown didn't seem to do what I wanted.
+Moving further in the process, it appears that the sbt plugin isn't
+really needed for IntelliJ. The IDE has its own setup and you can open
+an SBT console window using View->Tool Windows. From that console you
+can do builds. The Build menu pulldown didn't seem to do what I
+wanted.
+
+## IntelliJ Projects
+Organizational unit representing a complete software solution.
+May contain a series of discrete, isolated, modules.
+Don't contain development artifacts
+Define project-wide settings and collections of modules and libraries.
+
+`.idea` directory contains set of configuration file.
+
+Most of the `.idea\*.xml` files should be under version
+control. `workspace.xml` is an exception.
+
+## Extensions
+
+### .ignore
 
 
