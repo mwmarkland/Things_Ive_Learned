@@ -1,3 +1,13 @@
+## Notes from Matt Jensen
+
+My chess "muse".
+
+*As white I play 1.d4 usually followed by 2.c4, pawn from g2-g3 and Bg2. As black I like to play the Caro-Kann against 1.e4 and the Semi-Slav against other openings.*
+
+*Openings that are tactical in nature are the ones that need the most memorization. As Black the Sicilian and King's Indea defenses would be good ones. As white, playing 1.e4 tends to lead to more tactical positions. For openings that require more understanding than memorization I would look at the Torre as White and the French Defense as black.*
+
+Matt analyzes his games, but doesn't auto-analyze with the tooling.
+
 ## My Chess Personality
 
 This link will give some ideas of how I approach chess based on a quiz I took. Now I didn't really understand all the quiz questions, but it does list some possible openings to look at.
