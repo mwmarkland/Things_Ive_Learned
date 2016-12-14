@@ -4,6 +4,28 @@ Although entitled *Hadoop* this file contains a bunch of information
 about cluster setup, especially using Ambari, and other general tools
 in the Hadoop stack.
 
+## Hardware
+
+Four roles in a basic Hadoop cluster
+- NameNode
+- JobTracker
+- TaskTracker
+- DataNode
+
+A *node* is a machine performing a particular task. Most machines will perform both roles of DataNode and TaskTracker (storing data and processing).
+
+In a *balanced* Hadoop cluster, a node serving as a DataNode/TaskTracker has recommended specs of
+- 12-24 1-4TB hard disks in a JBOD configuration.
+- 2 quad/hex/octo core CPUS at least 2-2.5Ghz
+- 64-512GB RAM
+- Fast network (more storage -> higher network throughput needed).
+
+For NameNode/JobTracker/Standby NameNode
+- 4-6 1TB disks in JBOD (1 for the OS, 2 for FS [RAID 1], 1 for Zookeeper, 1 for Journal node)
+- 2 quad/hex/octo core CPUS at least 2-2.5Ghz
+- 64-128GB RAM
+- Network.
+
 ## Ambari hints/tips
 
 - Client installs from Ambari simply do the regular "package manager"
