@@ -2,7 +2,7 @@
 
 [Useful JVM Flags Part 8](https://blog.codecentric.de/en/2014/01/useful-jvm-flags-part-8-gc-logging/)
 
-`jvisualjvm`
+`jvisualvm`
 `jconsole`
 `jhat`
 
@@ -13,6 +13,9 @@
 ## Maven
 
 Shade plugin creates JARs with all the dependencies needed to run.
+
+`mvn dependency:resolve -X `
+
 
 ## Eclipse
 

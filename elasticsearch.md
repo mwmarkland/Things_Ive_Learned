@@ -5,8 +5,7 @@ The Definitive Guide* from O'Reilly.
 
 ## Overview
 
-Elasticsearch is a distributed document store; it stores/retrieves
-complex data structures serialized as JSON documents in real time.
+Elasticsearch is a distributed document store; it stores/retrieves complex data structures serialized as JSON documents in real time.
 
 All data in every field in a document is indexed by default.
 
@@ -68,3 +67,25 @@ the response to return to the user.
 Because each shard is a full search engine, you can horizontally scale
 your cluster so that each shard is on a single machine and it will
 consume all the resources.
+
+
+## Security
+[Web Documentation at Elastic](https://www.elastic.co/guide/en/x-pack/current/security-getting-started.html)
+
+Security seems to be setup using X-Pack which must be installed on
+every node. Users appear to be assigned **roles** via the API, which must update the `roles.yml` file (I think).
+
+Security has multiple levels:
+
+- User Authentication
+- Authorization and Role Based Access Control (RBAC)
+  - Secured Resource
+  - Privilege
+  - Permissions
+  - Role: A named set of permissions.
+  - User: Authenticated user.
+- Node/Client Authentication and Channel Encryption
+- Auditing
+
+
+    
