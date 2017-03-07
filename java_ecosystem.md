@@ -15,6 +15,9 @@
 Shade plugin creates JARs with all the dependencies needed to run.
 
 `mvn dependency:resolve -X `
+`mvn dependency:tree`
+`mvn dependency:purge-local-repository`
+`mvn versions:set -DnewVersion=1.3.8-RELEASE`
 
 
 ## Eclipse
