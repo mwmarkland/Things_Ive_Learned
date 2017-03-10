@@ -1,3 +1,6 @@
+# Shell commands
+`tree`
+
 # Shebang
 
 Typically you might see a hard-coded path like `#!/usr/bin/bash`. A
