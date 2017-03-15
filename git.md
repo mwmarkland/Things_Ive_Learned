@@ -1,3 +1,16 @@
+# Deleting a remote tag
+```
+How to: Delete a remote Git tag
+November 2009 · #git
+You probably won't need to do this often (if ever at all) but just in case, here is how to delete a tag from a remote Git repository.
+
+If you have a tag named '12345' then you would just do this:
+
+git tag -d 12345
+git push origin :refs/tags/12345
+That will remove '12345' from the remote repository.
+
+```
 # Learning about remote
 ```
 ➜  nlp-mayo-storm git:(master)  $ git remote show origin
