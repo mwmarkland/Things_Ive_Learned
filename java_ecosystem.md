@@ -1,3 +1,6 @@
+## Hibernate
+
+Hibernate validate library. [Getting Started Guide](http://hibernate.org/validator/documentation/getting-started/)
 ## JVM
 
 [Useful JVM Flags Part 8](https://blog.codecentric.de/en/2014/01/useful-jvm-flags-part-8-gc-logging/)
