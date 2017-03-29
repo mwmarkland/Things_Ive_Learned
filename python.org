@@ -1,0 +1,12 @@
+* Writing Compatible Code
+
+If you need to use Python 2 now and want to move more easily to Python
+3 in the future when it becomes the standard version on your system,
+use one of the bridge packages. A good strategy is to import the
+standard __future__ module. This includes features to make Python 2
+work like Python 3, and leave Python 3 code unharmed.
+
+** print_function — parenthesized arguments, redirection, and output separators.
+** unicode_literals — quoted strings are Unicode sequences, not bytes.
+** division — dividing integers with / makes a float, with // makes an integer.
+** absolute_import — ensure you’re importing what you expect when multiple modules have the same name.

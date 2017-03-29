@@ -2,6 +2,7 @@ LDAP Notes
 ----------
 
 .. _Wikipedia: https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol
+.. _here: http://stackoverflow.com/questions/18756688/what-are-cn-ou-dc-in-an-ldap-search
 
 The basics are coming from Wikipedia_.
 
@@ -23,6 +24,8 @@ DC
 Entries are trees and a server holds a subtree starting at a specific
 entry, ``dc=example,dc=com`` for example. Servers also hold references
 to other servers.
+
+The StackOverflow entry here_ is very informative also.
 
 Operations
 ==========

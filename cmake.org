@@ -1,0 +1,9 @@
+cmake-language(7) is the manual for the various files.
+
+Entry point for processing is the CMakeLists.txt file in the top-level
+source directory. If it does add_subdirectory() each subdirectory must
+have its own CMakeLists.txt file. For each directory whose
+CMakeLists.txt file is processed a corresponding directory in the
+build tree is created.
+
+Cmake generates a "build system" which is then used to build the code.

@@ -389,3 +389,68 @@ Upping memory allocation allows run on fewer nodes; it gives more suffle space.
 
 So, `cache()` to avoid recomputation; watch out for shuffles.
 
+# Notes on Apache Spark
+
+`Transformations` produce new RDDs.
+
+`Actions` produce a vaule back to the Spark driver. May cause lazy RDD
+computations to be evaluated.
+
+## RDD
+
+An RDD comprises a fixed number of `partitions` each of which has a
+number of `records`.
+
+For `narrow` transformations (map, filter) the records required to
+compute the new records in a single partion reside in a single
+partition in the parent RDD; each object is only dependent on a single
+object in the parent.
+
+`Coalesce` can result in a task processing multiple input partitions,
+but the transformation is still narrow because the input records used
+to compute any single output record can still only reside in a limited
+subset of the partitions.
+
+For `wide` transformations (groupByKey, reduceByKey) the data required
+to compute the records in a single partition may reside in may
+partitions of the parent RDD. Spark must shuffle the data leading to a
+new stage with a new set of partitions.
+
+
+## Execution Environment
+
+Source
+[How to Tune Your Apache Spark Jobs Part One](http://blog.cloudera.com/blog/2015/03/how-to-tune-your-apache-spark-jobs-part-1/)
+
+Application consists of a `driver` process and a set of `executor`
+processes scattered across nodes. Each `executor` has a number of
+slots for running `tasks` into which the work is broken up into.
+
+### Driver
+
+In charge of the high-level control flow of work. Has `jobs` as base
+unit. An `action` within a Spark application triggers the lauch of a
+Spark job to fulfill it. Spark creates the `job` by examining the
+graph of RDDs on which the action depends and creates an execution
+plan. An `execution plan` consists of assembling the job's
+transformations into `stages`. A `stage` corresponds to a collection
+of `tasks` that all execute the same code, each on a different subset
+of the data. Each `task` processes its data sequentially. The number
+of tasks in a stage is the same as tne number of partitions in the
+last RDD in the stage. The number of partitions in an RDD is the same
+as the number of partiions in the RDD on which it depends (except for
+`coalesce`, `union`, or `cartesian`).
+
+RDDs produced by `textFile` or `hadoopFile` have their partitions
+determined by the underlying MapReduce InputFormat; typically a
+partition for each HDFS block.
+
+Each stage contains a sequence of transformations which can be
+complted without `shuffling` the full data.
+
+Want more tasks to take advantage of the CPUs available.
+### Executor
+
+Executes the work in the form of `tasks` as well as store data that is
+cached.  Each executor has a number of slots for running tasks and
+will run many concurrently throughout its lifetime.

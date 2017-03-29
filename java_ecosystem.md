@@ -22,6 +22,8 @@ Shade plugin creates JARs with all the dependencies needed to run.
 `mvn dependency:purge-local-repository`
 `mvn versions:set -DnewVersion=1.3.8-RELEASE`
 
+### Archetypes
+``mvn archetype:generate -DarchetypeArtifactGroup=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart``
 
 ## Eclipse
 
