@@ -32,6 +32,10 @@ Remember you can add numbers to repeat the command for so many lines.
 `:tabc` - close current tab.
 `:tab[tT]` - next/prev tab.
 
+# Edit :e
+`:e <filename` open a file in the directory that vim was started in.
+`:e .` - gives a file listing you can select a file from.
+
 # Reindent a file.
 
 `ggVG=`
