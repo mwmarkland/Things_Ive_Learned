@@ -20,7 +20,8 @@ I'm not sure if I'm more tactical or positional at this point. I know I need to 
 
 
 ## SCID
-
+[A Tribute to SCID vs. PC](http://www.edcollins.com/chess/scidvspc/helpful-tips.htm)
+[Stockfish Analysis with SCID vs. PC](https://cortman.wordpress.com/2013/12/01/stockfish-analysis-with-scid-vs-pc/)
 ### Annotation
 
 [The Annotation Dialog](https://sourceforge.net/p/scid/wiki/TheAnnotateDialog/
@@ -28,6 +29,24 @@ I'm not sure if I'm more tactical or positional at this point. I know I need to 
 [The Analysis Window](https://sourceforge.net/p/scid/wiki/TheAnalysisWindow/)
 
 
+## Chessbase
+From Matt Jensen:
+```
+Hi Matt,
+
+I love Chessbase!  In the past I have tried Arena, SCID, and ChessX.  They are fine, but they are not as polished as Chessbase like you say.
+
+The regular download is perfect:  https://shop.chessbase.com/en/products/chessbase14_download
+
+You can add any UCI (Universal Chess Interface) engine.  I use Stockfish 8, which is open source and free to download.  I think it will come with an old version of Fritz, but just use Stockfish.  If you want to do a screen share over Skype sometime I can show you the features.  There are a ton of things you can do with Chessbase, and I barely scratch the surface myself. The main features revolve around storing/manipulating games and analysis of those games.
+
+Happy to help if you have more questions!
+```
+
 ## What to learn?
 
 [Past Beginner, but not Intermediate](http://chess.stackexchange.com/questions/15698/what-are-some-resources-for-someone-past-beginner-but-not-yet-intermediate/15703#15703)
+
+### Tactics
+
+[4 Exercises to Become a Tactical Genius](https://www.chess.com/article/view/4-exercises-to-become-a-tactical-genius)
