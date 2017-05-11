@@ -15,6 +15,9 @@ install. I chose `Eclipse IDE for Java Developers`.
 - Maven Integration for Eclipse
 - Markdown Text Editor
 - PyDev
+- Nodeclipse
+- Spring support
+- Angular support
 
 Optionally you could also add this for "advanced" TFS support:
 - Team Explorer Everywhere Plugin
