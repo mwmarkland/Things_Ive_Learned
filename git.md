@@ -1,3 +1,6 @@
+# Deleting a file/directory completely (erase from history)
+[git filter-branch](https://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-git-repo)
+
 # Deleting a remote tag
 ```
 How to: Delete a remote Git tag
