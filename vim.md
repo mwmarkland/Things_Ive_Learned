@@ -39,3 +39,7 @@ Remember you can add numbers to repeat the command for so many lines.
 # Reindent a file.
 
 `ggVG=`
+
+# Word wrap hints
+[Word wrap without line breaks](http://vim.wikia.com/wiki/Word_wrap_without_line_breaks)
+Good for editing plain text (like books/docs).
