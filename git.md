@@ -77,3 +77,7 @@ this.
 ## Fetching all changes from all remotes.
 `git pull --all`
 
+## Seeing some differences between branches
+`git log --graph --left-right --cherry-pick --oneline master..feature/clasisecurity_unittests`
+
+From here [Branch X is not fully merged error.](https://stackoverflow.com/questions/7548926/git-and-the-branch-x-is-not-fully-merged-error?bcsi-ac-4d57fec82d0c41f9=271918E500000005WQPJro39QDc/uO36TQRdsJfe1kpGAAAABQAAAC+cQQCAcAAAAAAAABKOAAA=)

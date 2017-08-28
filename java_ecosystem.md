@@ -1,3 +1,9 @@
+## Running from command line
+[With packages](https://stackoverflow.com/questions/19433366/running-java-in-package-from-command-line#19433387)
+
+## Properties files.
+[Examples](http://www.mkyong.com/java/java-properties-file-examples/)
+
 ## Hibernate
 
 Hibernate validate library. [Getting Started Guide](http://hibernate.org/validator/documentation/getting-started/)

@@ -156,3 +156,18 @@ R0223760:docker-scratch m134910$ docker run -v $PWD:/tmp/working -w=/tmp/working
 You'll get root unless you create a user account and such. Volumes are key to mounting directories and allowing interaction even with isolation.
 
 
+## Cache
+Docker caches images for speedy builds. I wanted to do a full build without the cache. There is a `build` option to disable the cache, but I decided I wanted to know how to clear it.
+
+Found these useful aliases.
+
+`alias docker_clean_images='docker rmi $(docker images -a --filter=dangling=true -q)'`
+`alias docker_clean_ps='docker rm $(docker ps --filter=status=exited --filter=status=created -q)'`
+
+With these, you can clear the cache with:
+
+```
+docker kill $(docker ps -q)
+docker_clean_ps
+docker rmi $(docker images -a -q)
+```
