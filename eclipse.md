@@ -24,6 +24,14 @@ Optionally you could also add this for "advanced" TFS support:
 
 ## Other items.
 
+### Searching for things.
+
+It seems like there are a lot of possible ways to search for things. 
+Try the following:
+
+Highlight a function/class and do "CMD-SHIFT-G" on a Mac to get the references in the Workspace for something.
+"CTRL-H" brings up the search menu.
+
 ### A dump of what I have installed on my Mac
 ```
 *** Date: Tuesday, May 2, 2017 at 8:13:48 AM Central Daylight Time
