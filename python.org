@@ -10,3 +10,25 @@ work like Python 3, and leave Python 3 code unharmed.
 ** unicode_literals — quoted strings are Unicode sequences, not bytes.
 ** division — dividing integers with / makes a float, with // makes an integer.
 ** absolute_import — ensure you’re importing what you expect when multiple modules have the same name.
+
+* Hints and Tips
+
+** Virtual Environments
+
+In Anaconda, you can use conda
+
+#+BEGIN_SRC bash
+conda create --name <envname>
+
+conda create --name test python=3.6
+#+END_SRC
+
+In generic python you can do
+#+BEGIN_SRC
+mdd_toolkit) ➜  ~/scratch/project  $ pyvenv
+WARNING: the pyenv script is deprecated in favour of `python3.6 -m venv`
+usage: venv [-h] [--system-site-packages] [--symlinks | --copies] [--clear]
+            [--upgrade] [--without-pip] [--prompt PROMPT]
+            ENV_DIR [ENV_DIR ...]
+venv: error: the following arguments are required: ENV_DIR
+#+END_SRC

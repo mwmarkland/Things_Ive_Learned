@@ -81,3 +81,17 @@ this.
 `git log --graph --left-right --cherry-pick --oneline master..feature/clasisecurity_unittests`
 
 From here [Branch X is not fully merged error.](https://stackoverflow.com/questions/7548926/git-and-the-branch-x-is-not-fully-merged-error?bcsi-ac-4d57fec82d0c41f9=271918E500000005WQPJro39QDc/uO36TQRdsJfe1kpGAAAABQAAAC+cQQCAcAAAAAAAABKOAAA=)
+
+# Working with tags
+
+## Delete a remote tag
+`git push --delete origin Version-1.0`
+
+and it is probably local also so
+`git tag -d Version-1.0`
+
+## Create and push a remote tag
+```
+git tag -a Version-1.0 -m "Version 1.0"
+git push origin Version-1.0
+```

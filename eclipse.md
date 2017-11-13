@@ -9,6 +9,24 @@ install. I chose `Eclipse IDE for Java Developers`.
 
 # Add Extensions/Plugins
 
+## From InfoWorlds 21 plug-ins to make the most of Eclipse
+- Darkest Dark
+- Spotbugs
+- Checkstyle
+- M2Eclipse
+- Unnecessary Code Detector
+- SonarLint
+- JRebel
+- TestNG
+- Bytecode Outline
+- PyDev
+- Nodeclipse
+- Scala IDE
+- Kotlin
+- YEdit
+- UML Designer
+- ImageJ
+
 ## From the Eclipse Marketplace
 
 - Scala-IDE

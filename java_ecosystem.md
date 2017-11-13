@@ -1,3 +1,7 @@
+## Running a maven project main class directly
+[Simple](https://stackoverflow.com/questions/9846046/run-main-class-of-maven-project)
+`mvn exec:java -Dexec.mainClass="markland.AppHello"`
+
 ## Running from command line
 [With packages](https://stackoverflow.com/questions/19433366/running-java-in-package-from-command-line#19433387)
 
@@ -19,6 +23,7 @@ Hibernate validate library. [Getting Started Guide](http://hibernate.org/validat
 [Hunting Memory Leaks in Java](https://www.toptal.com/java/hunting-memory-leaks-in-java)
 
 [The Secret Life of the Finalizer](http://www.fasterj.com/articles/finalizer1.shtml)
+
 ## Maven
 
 Shade plugin creates JARs with all the dependencies needed to run.

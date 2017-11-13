@@ -171,3 +171,6 @@ docker kill $(docker ps -q)
 docker_clean_ps
 docker rmi $(docker images -a -q)
 ```
+
+# Docker Compose
+Tool for definining and running multi-container Docker applications.
