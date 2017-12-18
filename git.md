@@ -1,3 +1,6 @@
+# Useful link
+[How to undo almost anything with git](https://github.com/blog/2019-how-to-undo-almost-anything-with-git)
+
 # Deleting a file/directory completely (erase from history)
 [git filter-branch](https://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-git-repo)
 
