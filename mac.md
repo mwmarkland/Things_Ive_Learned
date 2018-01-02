@@ -1,3 +1,6 @@
+## otool
+The Mach equivalent of objdump.
+
 ## dtrace and friends
 [Top 10 dtrace scripts](http://dtrace.org/blogs/brendan/2011/10/10/top-10-dtrace-scripts-for-mac-os-x/)
 

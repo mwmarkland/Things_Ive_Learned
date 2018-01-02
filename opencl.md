@@ -12,6 +12,16 @@ The paths look like:
 # 31 "/System/Library/Frameworks/OpenCL.framework/Headers/cl_platform.h" 3
 ```
 
+```
+/System/Library/Frameworks/OpenCL.framework/Libraries
+```
+
+IMPORTANT: *`-framework opencl`*
+
+```
+g++ -o cl_enumerate_devs cl_enumerate_devs.cc -framework opencl
+```
+
 ## clinfo projects
 ### Mac 
 Doesn't have a clinfo command built-in. Source for one is here:
