@@ -302,6 +302,390 @@ container.
 
 # Performance
 
+## Spark Performance Discussion with Arvind
+
+Conversation opened. 1 read message.
+
+Skip to content
+Using Gmail with screen readers
+Click here to enable desktop notifications for Gmail.   Learn more  Hide
+ 
+ 
+More 
+39 of 40
+ 
+FW: Update.... was RE: Getting the Scale 29 graph running in Spark/GraphX.
+Inbox
+	x
+Markland, Matthew W. (Matt), M.S. Markland.Matthew@mayo.edu via srs.acm.org 
+	
+6/7/16
+	
+to marklandm
+
+ 
+
+ 
+
+From: Arvind Chhabra [mailto:achhabra@cray.com]
+Sent: Tuesday, June 07, 2016 9:46 AM
+To: Markland, Matthew W. (Matt), M.S.
+Cc: Techentin, Robert W.; Poole, Ruth J.; Jim Maltby
+Subject: Re: Update.... was RE: Getting the Scale 29 graph running in Spark/GraphX.
+
+ 
+
+Hi Matt,
+
+ 
+
+My "guess" is that if the partitions are not too big i.e. if all partitions on a node can fit in the memory, it is best to leave 2-3 cores free for the OS etc. and have 1 partition for each of the remaining cores. Leaving a few cores per node free for OS etc. is important else the performance gets worse. Configuring the number of partitions is the easiest way I know to make sure that a few cores per node will be left for OS etc.
+
+ 
+
+There is a lot of guesswork involved because you never know how much memory is going to be used. For example the scale 29 graph file of 166 GB used about 1 TB of memory for RDDs across the 41 nodes. I had allocated about 4.1 TB of memory across 41 nodes (executor-memory was 100G), out of which about 
+
+2 TB (50%) is available for RDDs and the job used only 1 TB. That means I could have used a lower number for executor-memory and left a larger chunk for OS file cache. When I run on 32 nodes, I might lower the executor memory to 80 GB. That will give me about 1.28 TB  (80 * 0.5 * 32) of memory for RDDs.
+
+ 
+
+If the data size is much larger, it would be ideal to make sure that the number of partitions is a multiple of the number of cores (leaving 2-3 cores free per node). I am not sure how I would make sure that a few cores are left free for the OS in that case. For example if I had a 10 node cluster with 32 cores on each node and I split the RDD into 600 partitions, spark will probably run 320 tasks first and then run 280 tasks. Using all 320 cores will probably slow things down. I will ask around to see how this situation can be avoided.
+
+ 
+
+In extreme situations, if the number of partitions is even off by 1, it can double the time taken to do the job. Let us say you have a 10 node cluster with 32 cores and create 321 partitions. Spark will process 320 partitions in parallel and then process the last partition. When the last partition is being processed, 319 cores will be idle.
+
+ 
+
+I use block size just to avoid repartitioning after the initial load. If the number of partitions when reading the data from Lustre is the same as the number of partitions when I am manipulating the data, I avoid repartitioning.
+
+ 
+
+- Arvind
+
+Ph: +1-(650) 619-8006
+
+ 
+
+From: "Markland, Matthew W. (Matt), M.S." <Markland.Matthew@mayo.edu>
+Date: Tuesday, June 7, 2016 at 9:48 AM
+To: Arvind Chhabra <achhabra@cray.com>
+Cc: "Techentin, Robert W." <techentin.robert@mayo.edu>, "Poole, Ruth J." <Poole.Ruth@mayo.edu>, Jim Maltby <jmaltby@cray.com>
+Subject: RE: Update.... was RE: Getting the Scale 29 graph running in Spark/GraphX.
+
+ 
+
+Arvind:
+
+ 
+
+Awesome!
+
+ 
+
+Now for the questions…. ;-)
+
+ 
+
+Is it typical to want to create at least one partition per executor core. Appears to be the case and makes sense, but want confirmation.
+
+How key is the block size to the performance? That’s something I haven’t thought much about so far.
+
+ 
+
+Thanks!
+
+ 
+
+Matt
+
+ 
+
+From: Arvind Chhabra [mailto:achhabra@cray.com]
+Sent: Tuesday, June 07, 2016 7:49 AM
+To: Markland, Matthew W. (Matt), M.S.
+Cc: Techentin, Robert W.; Poole, Ruth J.; Jim Maltby
+Subject: Re: Update.... was RE: Getting the Scale 29 graph running in Spark/GraphX.
+
+ 
+
+Hi Matt,
+
+ 
+
+After experimenting a little, I am able to get reasonable performance for Page Rank on the Scale 29 graph that Bob had uploaded to Cray's FTP server. The job took about an hour using all 41 compute nodes. I will try running it tonight on 32 nodes. I have attached the script I used. Here are the parameters I used for the script:
+
+ 
+
+=============================================
+
+./page_rank.sh 41 file:///mnt/lustre/achhabra/graph_perf/rmat_scale29/mat29_graph.txt out/rmat29_pr
+
+Num Cores = 1312
+
+Num Partitions = 1189
+
+File Name = /mnt/lustre/achhabra/graph_perf/rmat_scale29/mat29_graph.txt
+
+File Size = 166237782813
+
+Block Size = 139813105
+
+=============================================
+
+ 
+
+Using 29 partitions for every 32 cores leaves 3 cores for the OS, Data Node etc. on each node.
+
+ 
+
+- Arvind
+
+Ph: +1-(650) 619-8006
+
+ 
+
+From: "Markland, Matthew W. (Matt), M.S." <Markland.Matthew@mayo.edu>
+Date: Monday, May 23, 2016 at 11:40 AM
+To: Arvind Chhabra <achhabra@cray.com>
+Cc: "Techentin, Robert W." <techentin.robert@mayo.edu>, "Poole, Ruth J." <Poole.Ruth@mayo.edu>
+Subject: Update.... was RE: Getting the Scale 29 graph running in Spark/GraphX.
+
+ 
+
+Arvind:
+
+ 
+
+Just an FYI… I modified the source to set the edge partitions to be 1024 and ran the test on 32 nodes; the test took 44 hours to complete. So I’m thinking there must be locality issues. The history server can’t load the logs from the run into the web interface so I’ll see if I can dig around a little bit.
+
+ 
+
+At the moment, though, I’m going to be summarizing and writing more than running tests, just FYI.
+
+ 
+
+Thanks!
+
+ 
+
+Matt
+
+ 
+
+From: Arvind Chhabra [mailto:achhabra@cray.com]
+Sent: Friday, May 20, 2016 11:59 AM
+To: Markland, Matthew W. (Matt), M.S.
+Cc: Techentin, Robert W.; Poole, Ruth J.
+Subject: RE: Getting the Scale 29 graph running in Spark/GraphX.
+
+ 
+
+I am still not able to work on the laptop but I am making some progress. Hope I can start working a few hours next week.
+
+ 
+
+Can you upload the data file to box.com or Cray FTP site and I will try to run the job on a machine here. I was wondering if the number of partitions should be at least the same as the number of cores. Looking at Spark history data can also help determine the bottlenecks.
+
+ 
+
+- Arvind
+
+Ph : 650-619-8006
+
+Sent from phone
+
+
+
+-------- Original message --------
+From: "Markland, Matthew W. (Matt), M.S." <Markland.Matthew@mayo.edu>
+Date: 5/20/2016 11:15 AM (GMT-05:00)
+To: Arvind Chhabra <achhabra@cray.com>
+Cc: "Techentin, Robert W." <techentin.robert@mayo.edu>, "Poole, Ruth J." <Poole.Ruth@mayo.edu>
+Subject: Getting the Scale 29 graph running in Spark/GraphX.
+
+Arvind:
+
+ 
+
+I hope that you are feeling better. Bob Techentin noted that you offered to take a look at my work to get the Scale 29 graph to run in Spark/GraphX. I finally had a successful run last night, successful in that it didn’t drop any executors and completed. However, it did take 7 hours to run which seems a little high given that Flink was able to do it in 2 hours (and we won’t mention CGE here because it isn’t fair. ;-)).
+
+ 
+
+So, here is the spark-submit I did:
+
+ 
+
+/usr/bin/time spark-submit --conf spark.network.timeout=360 --conf spark.shuffle.compress=true --conf spark.locality.wait=3 --total-executor-cores 1024 --executor-memory 96G --class mayo.athena.ga_demo.algm.RunPageRank.RunPageRank target/scala-2.10/runpagerank_2.10-0.5.jar GA_Demo/graphs/mat29_graph.txt
+
+ 
+
+I added the spark.network.timeout as it seemed to help with the dropping of executors as execution went on.  For source code changes, I find that setting the numEdgeListPartitions value when you load the graph can have an effect on performance in the general case, and that it should be tuned to match the number of nodes you are running on. This makes sense given that Spark parallelizes based on partitions. 480 is just a current value I came up with; it does not have any special meaning.
+
+ 
+
+I’m wondering if the partitioning of memory on the nodes may need to be tweaked in this case to improve locality. There are definitely some tasks that have locality “ANY”, although I’m having some troubles with the history server right now so I can’t say for sure how many.
+
+ 
+
+Any thoughts you might have are welcomed. I’d like to be able to beat Flink. ;-)
+
+ 
+
+Matt
+
+ 
+
+ 
+
+Here is the code for the benchmark.
+
+ 
+
+nid00046:~/lustre_home/athena_ga.svn/trunk/PageRank> cat src/main/scala/mayo/athena/ga_demo/algm/RunPageRank/RunPageRank.scala
+
+/**
+
+  * \file
+
+  * \date April 7, 2016
+
+  * \author Ruth Poole
+
+  *
+
+  * \copyright 2016, Mayo Clinic, All Rights Reserved.
+
+  *
+
+ 
+
+  * This program is free software: you can redistribute it and/or
+
+  * modify it under the terms of the GNU General Public License as
+
+  * published by the Free Software Foundation, either version 3 of the
+
+  * License, or (at your option) any later version.
+
+  *
+
+  * This program is distributed in the hope that it will be useful,
+
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+
+  * GNU General Public License for more details.
+
+  *
+
+  * You should have received a copy of the GNU General Public License
+
+  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  */
+
+ 
+
+package mayo.athena.ga_demo.algm.RunPageRank
+
+ 
+
+import org.apache.log4j.{Level,LogManager,PropertyConfigurator}
+
+import org.apache.spark._
+
+import org.apache.spark.graphx._
+
+import org.apache.spark.graphx.lib._
+
+ 
+
+object RunPageRank {
+
+ 
+
+  def usage():Unit = {
+
+    println("Usage: RunPageRank <directory>")
+
+  }
+
+ 
+
+  def main(args: Array[String]):Unit = {
+
+ 
+
+    val log = LogManager.getRootLogger
+
+    log.setLevel(Level.WARN)
+
+ 
+
+    if(args.length != 0) {
+
+      // Command line arguments
+
+      val directory = args(0)
+
+ 
+
+      println( "Will read from " + directory )
+
+ 
+
+      var conf = new SparkConf()
+
+      conf.set("spark.serializer","org.apache.spark.serializer.KryoSerializer")
+
+ 
+
+      val sc = new SparkContext(conf)
+
+      println("%%%%%%%%%% - App Id" + sc.applicationId)
+
+      // Load a file with edges specified as tab-delimited vertex source and destination.
+
+      //val my_graph = GraphLoader.edgeListFile( sc, directory )
+
+      val my_graph = GraphLoader.edgeListFile( sc, directory , numEdgePartitions = 480 )
+
+ 
+
+      val my_verts = my_graph.vertices.map{ case (v,i) => v }
+
+      // Compute page rank, the numeric is the tolerance for convergence, smaller will probably run more iterations
+
+      val my_pageRank = PageRank.runUntilConvergence( my_graph, 0.1 )
+
+ 
+
+      // Write results, this will force the lazy execution
+
+      my_pageRank.vertices.saveAsTextFile(directory + "_pr")
+
+    }
+
+    else {
+
+      usage()
+
+    }
+
+  }
+
+}
+
+--------------------------
+
+Matthew Markland | Sr. Analyst/Programmer | Advanced Analytics Unit |  507-538-5493 | markland.matthew@mayo.edu
+
+Mayo Clinic | 200 First Street SW | Rochester, MN 55905 | www.mayoclinic.org
+
+## Additional Notes
+
 After reading through notes from Arvind and looking at performance of
 various Spark runs, it is clear that you get better performance from
 Spark the more you look at the instance of your application and data

@@ -174,3 +174,7 @@ docker rmi $(docker images -a -q)
 
 # Docker Compose
 Tool for definining and running multi-container Docker applications.
+
+# Clair
+Vulnerability scanner
+https://github.com/coreos/clair

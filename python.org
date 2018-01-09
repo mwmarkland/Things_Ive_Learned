@@ -13,6 +13,15 @@ work like Python 3, and leave Python 3 code unharmed.
 
 * Hints and Tips
 
+** Snippets
+*** Strings
+
+Print string as hex:
+#+BEGIN_SRC python
+s = "Hello World !!"
+":".join("{:02x}".format(ord(c)) for c in s)
+#+END_SRC
+
 ** Virtual Environments
 
 In Anaconda, you can use conda
