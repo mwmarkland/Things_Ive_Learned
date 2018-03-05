@@ -1,3 +1,8 @@
+## softwareupdate
+Command line tooling for installing software updates.
+`softwareupdate --list`
+
+
 ## otool
 The Mach equivalent of objdump.
 
