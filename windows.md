@@ -7,4 +7,7 @@ APPDATA -- C:\Users\$USERNAME\AppData\Roaming
 
 because these directories are ensured to be available and follow you in the network.
 
+# Colors
+Color Tool from Microsoft is helpful.
+https://github.com/Microsoft/console/releases/tag/1708.14008
 
