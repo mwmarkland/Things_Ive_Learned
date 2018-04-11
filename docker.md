@@ -164,6 +164,9 @@ Found these useful aliases.
 `alias docker_clean_images='docker rmi $(docker images -a --filter=dangling=true -q)'`
 `alias docker_clean_ps='docker rm $(docker ps --filter=status=exited --filter=status=created -q)'`
 
+This works also
+`sudo docker ps --filter=status=exited --filter=status=created -q | sudo xargs docker rm`
+
 With these, you can clear the cache with:
 
 ```
