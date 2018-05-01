@@ -181,3 +181,14 @@ Tool for definining and running multi-container Docker applications.
 # Clair
 Vulnerability scanner
 https://github.com/coreos/clair
+
+# Registries
+
+With the V2 registries you can query for information about what's available.
+
+(Stack Overflow)[https://stackoverflow.com/questions/31251356/how-to-get-a-list-of-images-on-docker-registry-v2#31750543]
+
+```
+curl -X GET https://myregistry:5000/v2/_catalog
+curl -X GET https://myregistry:5000/v2/ubuntu/tags/list
+```
