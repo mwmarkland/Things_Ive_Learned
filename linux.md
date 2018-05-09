@@ -15,4 +15,7 @@ Use following syntax to list the files for already INSTALLED package:
 Use following syntax to list the files for RPM package:
 `rpm -qlp package.rpm`
 
+## apt
+apt list installed packages: `apt list --installed`
+
 
