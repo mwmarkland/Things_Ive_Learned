@@ -16,6 +16,12 @@ Use following syntax to list the files for RPM package:
 `rpm -qlp package.rpm`
 
 ## apt
-apt list installed packages: `apt list --installed`
+List installed packages: `apt list --installed`
+List available updates: `apt-get -u upgrade`
+List repositories: `apt-cache policy`
+
+`aptitude` essentially runs on the same libraries as apt-get and provides some better interfaces.
+
+[`wajig`](https://wiki.debian.org/Wajig) is even better!
 
 
