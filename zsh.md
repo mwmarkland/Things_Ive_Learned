@@ -16,3 +16,4 @@ privileges, add it to `/etc/shells`:
 ```
 sudo sh -c 'echo /opt/local/bin/zsh >> /etc/shells'
 ```
+# Trying out git on windows.
