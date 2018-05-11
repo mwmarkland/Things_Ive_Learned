@@ -1,3 +1,6 @@
+## Ubuntu
+Finding the version: `lsb_release -a`
+
 ## CentOS/RHEL
 ### /boot full of too many old kernels
 [stack-overflow](https://unix.stackexchange.com/questions/105026/boot-partition-is-almost-full-in-centos#105029)
@@ -19,6 +22,7 @@ Use following syntax to list the files for RPM package:
 List installed packages: `apt list --installed`
 List available updates: `apt-get -u upgrade`
 List repositories: `apt-cache policy`
+Search for a package by name or description: `apt-cache seach keyword`
 
 `aptitude` essentially runs on the same libraries as apt-get and provides some better interfaces.
 
