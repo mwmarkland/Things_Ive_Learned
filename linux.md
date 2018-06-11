@@ -1,3 +1,6 @@
+## Ubuntu
+Finding the version: `lsb_release -a`
+
 ## CentOS/RHEL
 
 `yum groupinstall "X Window System" "Desktop" "Desktop Platform" "Fonts"`
@@ -22,6 +25,7 @@ Use following syntax to list the files for RPM package:
 List installed packages: `apt list --installed`
 List available updates: `apt-get -u upgrade`
 List repositories: `apt-cache policy`
+Search for a package by name or description: `apt-cache seach keyword`
 
 `aptitude` essentially runs on the same libraries as apt-get and provides some better interfaces.
 
