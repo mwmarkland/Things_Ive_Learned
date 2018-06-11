@@ -1,4 +1,7 @@
 ## CentOS/RHEL
+
+`yum groupinstall "X Window System" "Desktop" "Desktop Platform" "Fonts"`
+
 ### /boot full of too many old kernels
 [stack-overflow](https://unix.stackexchange.com/questions/105026/boot-partition-is-almost-full-in-centos#105029)
 
@@ -24,4 +27,6 @@ List repositories: `apt-cache policy`
 
 [`wajig`](https://wiki.debian.org/Wajig) is even better!
 
+## Ubuntu/Debian
+`sudo apt-get install xorg openbox`
 

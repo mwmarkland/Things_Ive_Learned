@@ -13,6 +13,22 @@ work like Python 3, and leave Python 3 code unharmed.
 
 * Hints and Tips
 
+** The `in` operator
+
+The `in` operator is a membership test. It can be used to see if one
+thing is "in" another. One cool usecase is checking substrings. Here
+is a way to see if one file is a subset of another:
+
+https://unix.stackexchange.com/questions/114877/how-to-know-if-a-text-file-is-a-subset-of-another#114882
+
+#+BEGIN_SRC
+python -c 'x=open("file1").read();y=open("file2").read()";print(x in y)'
+#+END_SRC
+
+This reads each file into a variable as a string of bytes and then
+looks for one string in the other file. This is much better than
+line-by-line comparison.
+
 ** Snippets
 *** Strings
 
@@ -22,6 +38,7 @@ s = "Hello World !!"
 ":".join("{:02x}".format(ord(c)) for c in s)
 #+END_SRC
 
+
 ** Virtual Environments
 
 In Anaconda, you can use conda
@@ -30,6 +47,9 @@ In Anaconda, you can use conda
 conda create --name <envname>
 
 conda create --name test python=3.6
+conda env list
+source activate <env>
+
 #+END_SRC
 
 In generic python you can do
