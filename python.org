@@ -63,3 +63,15 @@ venv: error: the following arguments are required: ENV_DIR
 #+END_SRC
 ** Packaging
 python setup.py bdist_wheel ==> builds a wheel archive.
+* Pandas
+** Examples
+Create a dataframe using the constructor. Helps to see how the
+different fields interact.
+#+BEGIN_SRC
+>>> df3 = pd.DataFrame([[0,100,50],[-1,12,6],[3,6,4.5]],['A312','A313','A315'],columns=['min','max','mean'])
+>>> df3
+      min  max  mean
+A312    0  100  50.0
+A313   -1   12   6.0
+A315    3    6   4.5
+#+END_SRC
