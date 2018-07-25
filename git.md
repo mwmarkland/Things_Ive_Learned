@@ -1,8 +1,21 @@
+# Keeping a github/gitlab fork up-to-date
+Working in a github/gitlab flow, you usually fork the hosted repository and then do work on your fork. However, how do you keep your fork up-to-date with the original repository you forked. The simple answer is remotes.
+
+Add a remote named `upstream` (convention) which points to the original repository. You can then pull, rebase, etc from `upstream` to keep your fork up-to-date.
+```
+git remote add upstream git://github.com/ORIGINAL_USER/REPO_FORKED.git
+```
+
+Don't forget to push your stuff back to your remote forked repo to keep it up-to-date also.
+
 # Useful link
 [How to undo almost anything with git](https://github.com/blog/2019-how-to-undo-almost-anything-with-git)
 
+[Git Fixum](http://sethrobertson.github.io/GitFixUm/fixup.html)
+
 # Deleting a file/directory completely (erase from history)
 [git filter-branch](https://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-git-repo)
+
 
 # Delete a remote branch
 ```
