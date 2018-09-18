@@ -1,3 +1,11 @@
+# Choose your own adventure fix up tool:
+[On undoing, fixing, or removing commits in git](http://sethrobertson.github.io/GitFixUm/fixup.html)
+
+# Exec a command against commits in a rebase.
+I have a new favourite git snippet and its amazing.
+`$ git rebase -i --exec "make CFLAGS='-Werror' e7509a8c03`
+It runs make on every commit between e7509a8c03 and HEAD, building the project and stopping the rebase if the build fails. Allowing me to fix the commit and continue
+
 # Keeping a github/gitlab fork up-to-date
 Working in a github/gitlab flow, you usually fork the hosted repository and then do work on your fork. However, how do you keep your fork up-to-date with the original repository you forked. The simple answer is remotes.
 
