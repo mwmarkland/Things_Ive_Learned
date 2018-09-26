@@ -11,3 +11,8 @@ Keywords: 'Data Science', 'Python', 'scikit'
 This helps me understand what is happening when KFold is used in
 conjunction with calculating a learning curve. The code parameters are a little downlevel.
 
+## Using Keras with scikit-learn
+[Link to Keras docs](https://keras.io/scikit-learn-api/)
+
+Very interesting. Can use sequential keras models as classifier/regressor in scikit-learn tools.
+
