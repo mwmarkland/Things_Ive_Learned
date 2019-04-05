@@ -111,3 +111,17 @@ A312    0  100  50.0
 A313   -1   12   6.0
 A315    3    6   4.5
 #+END_SRC
+
+* Seaborn
+#+BEGIN_SRC
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn
+
+x = np.arrange(100) * 0.1
+y = np.sin(x)
+
+seaborn.scatterplot(x=x,y=y,hue=y)
+plt.show()
+#+END_SRC
+
