@@ -18,7 +18,13 @@ Git for Windows bash shell supports `ldd`.
 
 If you have visual studio, `dumpbin /dependents` is the way to go apparently.
 
-## Debug versus Release builds.
+## Visual Studio
+### Debug versus Release builds.
 Builds are often debug by default which means the libraries created aren't portable to other machines. Look for a trailing `D` on the library depenencies.
 `VCRUNTIME140D.dll` for example.
+
+Also when you are setting up options for builds via the preferences menus it is easy to setup stuff for the wrong build type or wrong target (or both) you have to be careful to make sure the preferences pane matches what you really want to target.
+
+### Linking issues.
+A function name with `__impl_` mangled to it means it has been marked with dllimport and is expected to come from a DLL.
 
