@@ -13,6 +13,9 @@ work like Python 3, and leave Python 3 code unharmed.
 
 * Hints and Tips
 
+** Comparing to None
+Have to use `is` and `is not` when checking for `None`
+
 ** The `in` operator
 
 The `in` operator is a membership test. It can be used to see if one
@@ -98,6 +101,49 @@ Derived.__init__ end
 #+END_SRC
 
 And the attributes are not shared, so I can't do obj.val and see the Base "val".
+
+** Parameters and arguments
+This seems overly complicated but I got bit by it in some code I've been working with. When reading about python you often hear about positional and keyword arguments. Those are on the function call side. On the definition side you can have named parameters and variadic extensions. And you can have default values for parameters. Let's see if I can sort this out a little.
+
+If I have code like this:
+#+BEGIN_SRC python
+class B:
+      def bfunc(self,a,b=77):
+            print("{},{}".format(a,b))
+
+#+END_SRC
+
+I've defined a method, `bfunc`, which has three positional parameters, `self`, `a`, and `b` and `b` has a default value.
+
+Now if we look at some calls to this function (where we have arguments)
+#+BEGIN_SRC
+In [32]: b = B()
+
+In [33]: b.bfunc(3,4)
+3,4
+
+In [34]: b.bfunc(3)
+3,77
+
+In [35]: b.bfunc(a=32,b=44)
+32,44
+
+#+END_SRC
+So in the first call, I pass positional arguments.
+In the second call I pass one positional argument and get the default for the second.
+In the third I pass both as keyword arguments... these get mapped to the parameters.
+
+#+BEGIN_SRC
+In [36]: b.bfunc(10,a=32)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-36-9099345fd78b> in <module>()
+----> 1 b.bfunc(10,a=32)
+
+TypeError: bfunc() got multiple values for argument 'a'
+#+END_SRC
+
+This is interesting, here I passed a positional and a keyword argument that both map to the same parameter. Error. :-)
 
 * Pandas
 ** Examples
