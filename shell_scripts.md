@@ -34,3 +34,7 @@ Here is an example which grabs a certain set of files and renames them.
 ```bash
 for x in `ls -l *.out | grep "Dec 16" | sed 's/\t/ /g' | cut -d' ' -f 9`; do cp $x "$x.faster"; done
 ```
+
+# SSH
+`ssh -Tv`
+
