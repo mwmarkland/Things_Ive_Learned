@@ -4,6 +4,9 @@ Alt+D, `powershell` or `powershell_ise`
 
 And opposite, in powershell enter `ii .` to start an explorer window.
 
+## Command Equivalents
+`grep` => `Select-String` [ShellHacks](https://www.shellhacks.com/windows-grep-equivalent-cmd-powershell/)
+
 ## Web Resources
 
 ### Learning
