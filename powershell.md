@@ -6,6 +6,7 @@ And opposite, in powershell enter `ii .` to start an explorer window.
 
 ## Command Equivalents
 `grep` => `Select-String` [ShellHacks](https://www.shellhacks.com/windows-grep-equivalent-cmd-powershell/)
+`find` => `Get-ChildItem` There are many aliases `ls`, `dir`, `gc`. Example: `gci -Path "C:\Users\"  -Recurse | where {$_.Name -like '*essential*'}`
 
 ## Web Resources
 
