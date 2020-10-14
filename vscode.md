@@ -8,4 +8,9 @@ I've tried this for org mode, and it seems to work.
 
 ## Useful Extensions
 There is one for org-mode files. Not great, but good enough.
+
 Microsoft's python extension.
+
+[indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow)
+
+[better-comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
