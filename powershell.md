@@ -4,6 +4,10 @@ Alt+D, `powershell` or `powershell_ise`
 
 And opposite, in powershell enter `ii .` to start an explorer window.
 
+## Starting it up.
+
+You can start it from explorer by typing `powershell` in the address bar. [Stack Overflow Answer](https://stackoverflow.com/questions/183901/how-do-i-start-powershell-from-windows-explorer)
+
 ## Command Equivalents
 `grep` => `Select-String` [ShellHacks](https://www.shellhacks.com/windows-grep-equivalent-cmd-powershell/)
 
