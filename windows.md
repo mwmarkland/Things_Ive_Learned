@@ -11,6 +11,13 @@ because these directories are ensured to be available and follow you in the netw
 Color Tool from Microsoft is helpful.
 https://github.com/Microsoft/console/releases/tag/1708.14008
 
+# Printing
+## How to clear the spooler and reset.
+```
+net stop spooler
+del /F /S /Q %systemroot%\system32\spool\printers
+net start spooler
+```
 # Development
 
 ## ldd equivalent
