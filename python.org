@@ -1,5 +1,8 @@
 * Environments
+** Poetry
 (Poetry Infoworld article)[https://www.infoworld.com/article/3527850/how-to-manage-python-projects-with-poetry.html]
+https://www.pythoncheatsheet.org/blog/python-projects-with-poetry-and-vscode-part-1/
+https://www.pythoncheatsheet.org/blog/python-projects-with-poetry-and-vscode-part-2/
 
 * Writing Compatible Code
 
