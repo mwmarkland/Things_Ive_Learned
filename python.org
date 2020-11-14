@@ -1,5 +1,5 @@
 * Environments
-[Poetry Infoworld article](https://www.infoworld.com/article/3527850/how-to-manage-python-projects-with-poetry.html)
+(Poetry Infoworld article)[https://www.infoworld.com/article/3527850/how-to-manage-python-projects-with-poetry.html]
 
 * Writing Compatible Code
 
