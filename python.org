@@ -1,3 +1,6 @@
+* Environments
+[Poetry Infoworld article](https://www.infoworld.com/article/3527850/how-to-manage-python-projects-with-poetry.html)
+
 * Writing Compatible Code
 
 If you need to use Python 2 now and want to move more easily to Python
