@@ -11,6 +11,9 @@ And opposite, in powershell enter `ii .` to start an explorer window.
 `find` => `Get-ChildItem` There are many aliases `ls`, `dir`, `gc`. 
 - Example: `gci -Path "C:\Users\"  -Recurse | where {$_.Name -like '*essential*'}`
 
+`grep x *.md | cut -f1 -d':'` is equivalent to `Select-String "x" *.md | Foreach-Object {$_.ToString().split(":")[1]}`
+The interesting thing with this one is that `Select-String` returns a `MatchInfo` object so you have to convert it to a string to be able to run `split` on it.
+
 ## Web Resources
 
 ### Learning
