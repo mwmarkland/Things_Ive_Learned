@@ -1,3 +1,11 @@
+# How to handle line endings/text encodings.
+Can be done by filetype in a `.gitattributes` file.
+[StackOverflow Link 1](https://stackoverflow.com/questions/170961/whats-the-best-crlf-carriage-return-line-feed-handling-strategy-with-git)
+[Repository with a bunch of gitattributes files](https://github.com/alexkaratarakis/gitattributes)
+[GitHub's docs](https://docs.github.com/en/free-pro-team@latest/github/using-git/configuring-git-to-handle-line-endings)
+
+This may not be as big a deal now that most editors that I would consider using on Windows handle unix line endings. I think I'm just going to have to experiment a bit and see what happens.
+
 # Choose your own adventure fix up tool:
 [On undoing, fixing, or removing commits in git](http://sethrobertson.github.io/GitFixUm/fixup.html)
 
