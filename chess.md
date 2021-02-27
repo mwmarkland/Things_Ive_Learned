@@ -1,3 +1,31 @@
+## Chess Rules from the Lourdes Chess Club
+### Ten Rules for Opening
+The basic idea in the opening is to develop quickly and get control of the center.
+
+1. Open with d-pawn or e-pawn.
+2. Wherever possible make a good developing move wich threatens something.
+3. Develop knights before bishops.
+4. Pick the most suitable square for a piece and developer it there once and for all.
+5. Make one or two pawn moves in the opening, not more.
+6. Do not bring your Queen out early.
+7. Castle as soon as possible, preferably on the King's side.
+8. Play to get control of the center.
+9. Always try to maintain at least one pawn in the center.
+10. Do not sacrifice with a clear and adequate reason.
+
+### Ten Rules for the Middle Game
+1. Have all your moves fit into definite plans. Don't play aimlessly.
+2. When ahead in material exchange pieces whenever possible. Pawns are not considered pieces; try not to trade pawns.
+3. Avoid doubled, isolated, and backward pawns.
+4. In cramped positions, free yourself by exchanging.
+5. Do not expose your own King while Queens are still on the board.
+6. All combinations are based on double attack.
+7. If your opponent has one or more pieces exposed, look for a combination.
+8. To attack the King you must open a file (or less often a diagonal) to gain access for your heavy pieces (Queen and Rooks).
+9. Centralize the action of all the pieces.
+10. The best defense is a counterattack.
+
+
 ## Notes from Matt Jensen
 
 My chess "muse".
