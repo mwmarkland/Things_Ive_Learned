@@ -14,6 +14,8 @@ And opposite, in powershell enter `ii .` to start an explorer window.
 `grep x *.md | cut -f1 -d':'` is equivalent to `Select-String "x" *.md | ForEach-Object {$_.ToString().split(":")[1]}`
 The interesting thing with this one is that `Select-String` returns a `MatchInfo` object so you have to convert it to a string to be able to run `split` on it.
 
+`which` -> [Stack Overflow](https://stackoverflow.com/questions/11242368/test-if-executable-is-in-path-in-powershell)
+
 ## Web Resources
 
 ### Learning
