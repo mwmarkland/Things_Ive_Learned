@@ -29,6 +29,8 @@ Don't forget to push your stuff back to your remote forked repo to keep it up-to
 
 [Git Fixum](http://sethrobertson.github.io/GitFixUm/fixup.html)
 
+[How to Fix a Bad Commit](https://dev.to/guivern/git-how-to-fix-a-bad-commit-4068)
+
 # Deleting a file/directory completely (erase from history)
 [git filter-branch](https://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-git-repo)
 
