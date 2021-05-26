@@ -16,6 +16,13 @@ The interesting thing with this one is that `Select-String` returns a `MatchInfo
 
 `which` -> [Stack Overflow](https://stackoverflow.com/questions/11242368/test-if-executable-is-in-path-in-powershell)
 
+## Useful commands
+### Archives
+Expand a zipped directory/file: `Expand-Archive -Force C:\path\to\archive.zip C:\where\to\extract\to`
+- Looks like there is a `Compress-Archive` also.
+- Looks like there is a `tar` command also.
+
+
 ## Web Resources
 
 ### Learning
