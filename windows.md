@@ -38,3 +38,8 @@ Also when you are setting up options for builds via the preferences menus it is 
 ### Linking issues.
 A function name with `__impl_` mangled to it means it has been marked with dllimport and is expected to come from a DLL.
 
+### Various useful commands
+`driverquery`
+`sfc \scannow`: *System File Checker*
+`netsh wlan show profile`
+`systeminfo`
