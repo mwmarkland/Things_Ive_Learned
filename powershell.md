@@ -18,6 +18,7 @@ The interesting thing with this one is that `Select-String` returns a `MatchInfo
 
 ## Useful commands
 ### Archives
+[How to zip and unzip files using Powershell](https://www.howtogeek.com/670314/how-to-zip-and-unzip-files-using-powershell/)
 Expand a zipped directory/file: `Expand-Archive -Force C:\path\to\archive.zip C:\where\to\extract\to`
 - Looks like there is a `Compress-Archive` also.
 - Looks like there is a `tar` command also.
