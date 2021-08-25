@@ -1,6 +1,13 @@
 # LLVM
 A huge topic. But something I want to learn more about.
 
+## General Hints/Notes
+- clang is, by default, heavily tied to UTF-8 as its input file format.
+
+## Build hints
+### How to compile an out-of-tree LLVM program without using any sort of build system
+  g++ test.cpp -O `llvm-config -cxxflags` `llvm-config --ldflags` `llvm-config --libs`
+
 ## Compliation Flow
 
 ### High-Level
