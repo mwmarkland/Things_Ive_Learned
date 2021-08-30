@@ -23,6 +23,13 @@ Expand a zipped directory/file: `Expand-Archive -Force C:\path\to\archive.zip C:
 - Looks like there is a `Compress-Archive` also.
 - Looks like there is a `tar` command also.
 
+## Tips/Hints
+### Convert EBCDIC to ASCII
+  $Buffer = Get-Content $SourceFileName -Encoding byte
+  $Encoding = [System.Text.Encoding]::GetEncoding("IBM037")
+  $String = $Encoding.GetString($Buffer)
+
+Could probably pipe GetString into `clip` and then past into Notepad perhaps?
 
 ## Web Resources
 
