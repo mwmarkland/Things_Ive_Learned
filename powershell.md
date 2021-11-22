@@ -29,7 +29,7 @@ Expand a zipped directory/file: `Expand-Archive -Force C:\path\to\archive.zip C:
   $Encoding = [System.Text.Encoding]::GetEncoding("IBM037")
   $String = $Encoding.GetString($Buffer)
 
-Could probably pipe GetString into `clip` and then past into Notepad perhaps?
+Could probably pipe GetString into `clip` and then past into Notepad perhaps? Can send to VSCode by piping into `code -`.
 
 ## Web Resources
 
