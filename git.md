@@ -1,7 +1,10 @@
 # How to handle line endings/text encodings.
 Can be done by filetype in a `.gitattributes` file.
+
 [StackOverflow Link 1](https://stackoverflow.com/questions/170961/whats-the-best-crlf-carriage-return-line-feed-handling-strategy-with-git)
+
 [Repository with a bunch of gitattributes files](https://github.com/alexkaratarakis/gitattributes)
+
 [GitHub's docs](https://docs.github.com/en/free-pro-team@latest/github/using-git/configuring-git-to-handle-line-endings)
 
 This may not be as big a deal now that most editors that I would consider using on Windows handle unix line endings. I think I'm just going to have to experiment a bit and see what happens.
@@ -142,4 +145,12 @@ and it is probably local also so
 ```
 git tag -a Version-1.0 -m "Version 1.0"
 git push origin Version-1.0
+```
+# Review all you git commits over the last year [Susan Potter's Twitter](https://twitter.com/SusanPotter/status/1475668077819871233)
+```
+$ git rev-list --author=your@email.address --since=1.year.ago --all
+
+Above is across all branches but if you want only what was merged to main you'd do:
+
+$ git rev-list --author=your@email.address --since=1.year.ago main
 ```
