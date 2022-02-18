@@ -23,6 +23,11 @@ net start spooler
 ```
 # Development
 
+## WSL Stuff
+Resetting underlying service if you get a blank window: `Get-Service LxssManager | Restart-Service` or `wsl --shutdown`
+
+Setting up VSCode connection, type `code .` in the WSL window to get the server stuff installed.
+
 ## ldd equivalent
 Git for Windows bash shell supports `ldd`.
 
@@ -38,7 +43,7 @@ Also when you are setting up options for builds via the preferences menus it is 
 ### Linking issues.
 A function name with `__impl_` mangled to it means it has been marked with dllimport and is expected to come from a DLL.
 
-### Various useful commands
+# Various useful commands
 `driverquery`
 `sfc \scannow`: *System File Checker*
 `netsh wlan show profile`
