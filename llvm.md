@@ -22,4 +22,5 @@ clang generates un-optimized `bitcode` which is fed through LLVM to get optimize
 ## Education Resources
 ### Machine Level Stuff
 [2017 LLVM Developers’ Meeting: M. Braun “Welcome to the back-end: The LLVM machine representation”](https://www.youtube.com/watch?v=objxlZg01D0)
+
 [2017 LLVM Developers’ Meeting: J. Bogner & A. Nandakumar & D. Sanders “Tutorial: GlobalISel ”](https://www.youtube.com/watch?v=Zh4R40ZyJ2k)
