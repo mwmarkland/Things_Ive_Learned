@@ -1,3 +1,6 @@
+* Windows
+py command
+(Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Manage App Execution Aliases.)[https://stackoverflow.com/questions/65348890/python-was-not-found-run-without-arguments-to-install-from-the-microsoft-store]
 * Environments
 ** Poetry
 (Poetry Infoworld article)[https://www.infoworld.com/article/3527850/how-to-manage-python-projects-with-poetry.html]
