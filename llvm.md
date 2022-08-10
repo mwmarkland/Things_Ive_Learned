@@ -24,3 +24,18 @@ clang generates un-optimized `bitcode` which is fed through LLVM to get optimize
 [2017 LLVM Developers’ Meeting: M. Braun “Welcome to the back-end: The LLVM machine representation”](https://www.youtube.com/watch?v=objxlZg01D0)
 
 [2017 LLVM Developers’ Meeting: J. Bogner & A. Nandakumar & D. Sanders “Tutorial: GlobalISel ”](https://www.youtube.com/watch?v=Zh4R40ZyJ2k)
+
+## Notes
+
+### CodeGen
+Headers are in `llvm/include/llvm/CodeGen`.
+
+The all-CAPS names used for variables help describe types somewhat.
+
+- MBB: machine basic block - MachineBasicBlock.h - Collect the sequence of machine instructions for a basic block.
+- MF: machine function - MachineFunction.h - Collect native machine code for a function. Contains a list of MachineBasicBlock instances that make up the current compiled fucntion.
+
+### Passes
+Module passes
+
+Function passes
