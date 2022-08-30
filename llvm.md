@@ -39,3 +39,5 @@ The all-CAPS names used for variables help describe types somewhat.
 Module passes
 
 Function passes
+
+You can see the results from named passes in Compiler Explorer. If you pass `-mllvm -stop-after=irtransation` for example, you can get the IR translation pass output in the output window. Very cool.
