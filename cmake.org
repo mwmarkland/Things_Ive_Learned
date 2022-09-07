@@ -11,3 +11,4 @@ Cmake generates a "build system" which is then used to build the code.
 ** Selecting DEBUG and RELEASE builds in Linux
 [[https://cmake.org/pipermail/cmake/2008-March/020347.html][Selecting DEBUG and RELEASE builds in Linux]]
 
+`cmake --build ./ --clean-first`
