@@ -7,6 +7,9 @@ APPDATA -- C:\Users\$USERNAME\AppData\Roaming
 
 because these directories are ensured to be available and follow you in the network.
 
+# SSH
+`c:\Users\$USERNAME\.ssh`: the place for the config
+
 # Windows Terminal
 [Starting from explorer](https://blog.mzikmund.com/2020/01/tip-launch-windows-terminal-quickly-from-file-explorer/)
 
