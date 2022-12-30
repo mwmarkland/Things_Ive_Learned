@@ -11,6 +11,8 @@ I've tried this for org mode, and it seems to work.
 
 [Microsoft C++](https://code.visualstudio.com/docs/languages/cpp): also has links to some howtos...
 
+[Configure VS Code for Microsoft C++](https://code.visualstudio.com/docs/cpp/config-msvc)
+
 ## Python Development
 
 [Python](https://code.visualstudio.com/docs/languages/python)
