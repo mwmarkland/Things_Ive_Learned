@@ -36,6 +36,9 @@ The all-CAPS names used for variables help describe types somewhat.
 - MF: machine function - MachineFunction.h - Collect native machine code for a function. Contains a list of MachineBasicBlock instances that make up the current compiled fucntion.
 
 ### Passes
+#### Show LLVM Optimization Passes
+`llvm-as < /dev/null | opt -O3 -disable-output -debug-pass=Arguments`
+
 Module passes
 
 Function passes
