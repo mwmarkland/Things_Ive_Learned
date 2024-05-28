@@ -31,6 +31,11 @@ Expand a zipped directory/file: `Expand-Archive -Force C:\path\to\archive.zip C:
 
 Could probably pipe GetString into `clip` and then past into Notepad perhaps? Can send to VSCode by piping into `code -`.
 
+### Select-String line limit
+By default `Select-String` will limit the size of the output line to match the console size even if you are piping it into something else. Here is an example that gets around that.
+
+`Select-String "cpassx" .\PASCAL_VM_7.6_VM_compiler_scan.20240522.txt |Select-Object -ExpandProperty line | code -`
+
 ## Web Resources
 
 ### Learning
