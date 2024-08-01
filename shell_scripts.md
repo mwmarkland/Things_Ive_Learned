@@ -1,6 +1,17 @@
 # Shell commands
 `tree`
 
+# bash
+## Safer bash scripts (from twitter)
+```bash
+#!/usr/bin/bash
+set -exuo pipefail
+```
+- `-e`: exit if a command fails
+- `-u`: exit if a variable is undefined
+- `-x`: print each script line before it is run
+- `-o pipefail`: exit if a command in a pipeline fails
+
 # Shebang
 
 Typically you might see a hard-coded path like `#!/usr/bin/bash`. A
