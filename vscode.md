@@ -6,6 +6,8 @@
 
 I've tried this for org mode, and it seems to work.
 
+I've done the command pallete: configure language specific settings for Markdown to turn this off for markdown in more recent versions.
+
 ## C++ Development
 [How to compile your C++ Code in VisualStudio Code](https://www.freecodecamp.org/news/how-to-compile-your-c-code-in-visual-studio-code/)
 
