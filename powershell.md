@@ -5,6 +5,10 @@ Alt-F, R (from Explorer)
 
 And opposite, in powershell enter `ii .` to start an explorer window.
 
+## Extra Modules/Powershell Gallery
+[Powershell Community Extensions](https://github.com/Pscx/Pscx)
+- `Read-Archive`
+  
 ## Command Equivalents
 `grep` => `Select-String` [ShellHacks](https://www.shellhacks.com/windows-grep-equivalent-cmd-powershell/)
 
