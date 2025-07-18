@@ -157,3 +157,16 @@ Above is across all branches but if you want only what was merged to main you'd 
 
 $ git rev-list --author=your@email.address --since=1.year.ago main
 ```
+# git internals/guts
+When looking at internals/guts of a git repository, the `objects` directory will probably have a bunch of subdirectories. The important thing to note when trying something like `git cat-file -t <sha>` is that **the first two characters for the SHA are the directory name**. So if the directory looks like this:
+```
+> pwd
+.../.git/objects/ff
+> ls 
+a7a03d9dda4e98aea98b309c85a72b8d12d02d
+> git cat-file -t a7a03d9dda4e98aea98b309c85a72b8d12d02d
+fatal: Not a valid object name a7a03d9dda4e98aea98b309c85a72b8d12d02d
+> git cat-file -t ffa7a03d9dda4e98aea98b309c85a72b8d12d02d
+tree
+>
+```
